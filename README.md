@@ -60,9 +60,15 @@ $ npm run test:cov
 
 
 ## Installed Modules
-**Class Validators**` npm i class-validator class-transformer --save
+**Class Validators**
+```bash
+npm i class-validator class-transformer --save
+```
 
-**`Mapped Types for partial imports**  `npm i @nestjs/mapped-types`
+**Mapped Types for partial imports** 
+```bash
+npm i @nestjs/mapped-types
+```
 
 ## License
 
