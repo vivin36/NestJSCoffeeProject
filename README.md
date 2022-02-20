@@ -58,17 +58,23 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-
 ## Installed Modules
+
 **Class Validators**
+
 ```bash
 npm i class-validator class-transformer --save
 ```
 
-**Mapped Types for partial imports** 
+**Mapped Types for partial imports**
+
 ```bash
 npm i @nestjs/mapped-types
 ```
+
+### Reference
+
+[[1]Coffee example in Nestjs][https://github.com/jidayyy/iluvcodee/tree/b88d81865313ac0062cc9b1d653cbb4f040b07d4]
 
 ## License
 

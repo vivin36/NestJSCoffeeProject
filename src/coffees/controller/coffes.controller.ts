@@ -20,7 +20,7 @@ export class CoffesController {
   constructor(private readonly coffeService: CoffeService) {}
 
   @Get()
-  findAll(): Coffee[] {
+  findAll() {
     return this.coffeService.getAllCoffees();
   }
 

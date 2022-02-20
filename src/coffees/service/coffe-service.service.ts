@@ -1,6 +1,8 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { HttpErrorByCode } from '@nestjs/common/utils/http-error-by-code.util';
+import { InjectRepository } from '@nestjs/typeorm';
 import { Coffee } from 'src/coffees/entities/coffee.entity';
+import { Repository } from 'typeorm';
 import { CreateCoffeeDto } from '../entities/Dto/create-coffee.dto';
 
 @Injectable()
@@ -14,8 +16,13 @@ export class CoffeService {
     },
   ];
 
-  getAllCoffees(): Coffee[] {
-    return this.coffeData;
+  constructor(
+    @InjectRepository(Coffee)
+    private readonly coffeeRepository: Repository<Coffee>,
+  ) {}
+
+  getAllCoffees() {
+    return this.coffeeRepository.find();
   }
 
   getById(id: number) {
@@ -30,11 +37,14 @@ export class CoffeService {
   }
 
   createNew(createCoffeeDto: CreateCoffeeDto) {
-    const coffee: Coffee = {
+    /*     const coffee: Coffee = {
       ...createCoffeeDto,
       id: this.coffeData.length + 1,
     };
     this.coffeData = [...this.coffeData, coffee];
+  } */
+    const coffee = this.coffeeRepository.create(createCoffeeDto);
+    return this.coffeeRepository.save(coffee);
   }
 
   updateItem(id: number, updatedItem: any) {
